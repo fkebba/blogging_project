@@ -12,8 +12,8 @@ export default function Home() {
     <main
       className={` bg-[#f5F5F5]`}
     >
-      <div className='flex pt-[50px] lg:px-[60px] md:px-2 mx-auto overflow-hidden'>
-        <div className='md:flex block'>
+      <div className='flex pt-[50px]'>
+        <div className='md:flex block md:px-[60px] px-2 mx-auto overflow-hidden'>
           <AboutBlogSection />
           <BlogPosts />
           <TrendingComponent />

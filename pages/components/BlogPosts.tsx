@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Tab } from '@headlessui/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import {  GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { FaHashtag, FaComment, FaHeart } from 'react-icons/fa';
 import ReactionButton from './ReactionButton';
+import MenuDropdownHover from './MenuDropdownHover';
+import { client } from '@/lib/contentful/client';
 
 
 type Category= {
@@ -22,7 +23,11 @@ type Category= {
   authorName?: string;
   authorImage?: string;
   postDate?: string;
+  name?: string;
   
+};
+type BlogPostProps = {
+  BlogPost: Categories;
 };
 
 
@@ -34,7 +39,7 @@ function classNames(...classes: (string | boolean)[]): string {
   return classes.filter(Boolean).join(' ');
 }
 
-const BlogPost: React.FC = () => {
+const BlogPost: React.FC<BlogPostProps> = ({ BlogPost }) => {
 const [categories] = useState<Categories>({
     Relevant: [
       {
@@ -224,18 +229,13 @@ const [categories] = useState<Categories>({
                      </Link>
                     )}
                     <div className="flex items-center mb-2 mt-4 pl-[20px]">
-                      <Image
-                        src={post.authorImage as string}
-                        alt={`Profile picture of ${post.authorName}`}
-                        width={32}
-                        height={32}
-                        className="rounded-full"
+                      <MenuDropdownHover author={{ name: post.authorName as string, image: post.authorImage as string }}
+                        date={post.postDate as string} 
                       />
-                      <div className="ml-2">
-                        <p className="text-[14px] text-[#3D3D3D]">{post.authorName}</p>
-                        <p className="text-[12px] text-gray-500 ">{post.postDate}</p>
-                      </div>
                     </div>
+                    {/* <div className=""> */}
+                     {/* <p className="text-[12px] text-gray-500 pl-[70px] ">{post.postDate}</p> */}
+                   {/* </div> */}
                     <div className="pl-[50px] pb-[30px] pr-[15px]">
                       {post.slug && (
                          <Link href={post.slug}>
@@ -276,10 +276,7 @@ const [categories] = useState<Categories>({
                         <Link href="" className='flex space-x-8  px-2  rounded hover:bg-slate-100'><FaComment className=" w-4 h-4 fill-slate-300 mr-2 mt-1" />{post.commentCount} comments</Link>
                         
                       </div>
-                      {/* <div> */}
                       <span>{post.time}</span>
-
-                      {/* </div> */}
                       </div>
                      
                     </div>
@@ -295,6 +292,7 @@ const [categories] = useState<Categories>({
     </div>
 );
 };
+
 
 export default BlogPost;
 

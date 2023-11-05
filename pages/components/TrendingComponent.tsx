@@ -96,9 +96,9 @@ const TrendingComponent: FC = () => {
   return (
     <div className='space-y-4 pb-20 md:w-[380px]'>
       <div className='bg-white rounded border'>
-        <div className='border-b-[1px] py-4 flex px-4 text-[#161616]'>
+        <div className='border-b-[1px] py-4 flex px-4 text-[#161616] hover:text-blue-800 cursor-pointer'>
           <FaHashtag className='mt-2 size-2' />
-          <h2 className='font-bold text-[22px]'>discuss</h2>
+          <h2 className='font-bold text-[22px] '>discuss</h2>
         </div>
 
         {discussPosts.map((post, index) => (
@@ -107,9 +107,9 @@ const TrendingComponent: FC = () => {
       </div>
 
       <div className='bg-white rounded border'>
-        <div className='border-b-[1px] py-4 flex px-4 text-[#161616]'>
+        <div className='border-b-[1px] py-4 flex px-4 text-[#161616] hover:text-blue-800 cursor-pointer'>
           <FaHashtag className='mt-2.5 size-2' />
-          <h2 className='font-bold text-[22px]'>watercooler</h2>
+          <h2 className='font-bold text-[22px] '>watercooler</h2>
         </div>
 
         {watercoolerPosts.map((post, index) => (
@@ -118,9 +118,9 @@ const TrendingComponent: FC = () => {
       </div>
 
       <div className='bg-white rounded border'>
-        <div className='border-b-[1px] py-4 flex px-4 text-[#161616]'>
+        <div className='border-b-[1px] py-4 flex px-4 text-[#161616] hover:text-blue-800 cursor-pointer'>
           <FaHashtag className='mt-2 size-2' />
-          <h2 className='font-bold text-[20px]'>hacktoberfest</h2>
+          <h2 className='font-bold text-[20px] '>hacktoberfest</h2>
         </div>
 
         {hacktoberfestPosts.map((post, index) => (

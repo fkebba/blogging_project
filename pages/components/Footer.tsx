@@ -21,6 +21,7 @@ import {
   FaMastodon,
 } from 'react-icons/fa';
 import Link from 'next/link';
+import DevCommunity from './DevCommunity';
 
 interface FooterLink {
   icon: JSX.Element;
@@ -120,6 +121,9 @@ const additionalLinks: FooterLink[] = [
           </Link>
         </div>
         <ScrollBar />
+        {/* <div> */}
+          <DevCommunity />
+        {/* </div> */}
       </div>
     </nav>
   );

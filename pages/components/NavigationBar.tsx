@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import Image from 'next/image';
-import {FaSearch} from 'react-icons/fa'
+import { FaSearch } from 'react-icons/fa'
+
+
 
 
 const NavigationBar: React.FC = () => {
@@ -18,13 +20,13 @@ const NavigationBar: React.FC = () => {
   };
 
   return (
-    <nav className="flex justify-between sticky top-0 z-10 items-center px-[50px] py-4 bg-white text-[#161616]">
-     
-      <div className='flex space-x-4'>
+    <nav className=" px-[60px] flex justify-between lg:max-w-[1740px] overflow-hidden mx-auto sticky top-0 z-10 py-4 bg-white text-[#161616]">
+      <div className='flex space-x-4 '>
       <Link href="/" className='mt-[16px]'>
           <Image src="/images/logo.png" width={60} height={40} alt="Logo" className="" />
         </Link>
         <div className={`relative lg:block mt-4`}>
+          
         
           <input
             type="text"
@@ -35,10 +37,11 @@ const NavigationBar: React.FC = () => {
           />
           <button className={`absolute top-0 right-0 mt-2 mr-2 focus:outline-none`}>
             <FaSearch className="mt-2 hover:fill-[#3b49df]" />
+            
           </button>
+          
         </div>
-      </div>
-    
+        </div>
       <div className={`${isMenuOpen ? 'block' : 'hidden'} lg:flex lg:items-center`}>
         <ul className="lg:flex lg:space-x-6">
           <li>
